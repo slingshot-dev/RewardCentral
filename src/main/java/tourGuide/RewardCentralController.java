@@ -1,5 +1,6 @@
 package tourGuide;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,8 +18,8 @@ public class RewardCentralController {
         this.rewardCentralService = rewardCentralService;
     }
 
-    @RequestMapping("/getAttractionRewardPoints")
+    @GetMapping("/getAttractionRewardPoints")
 
-    public int userAttract(@RequestParam UUID attractionId, UUID userId) {return rewardCentralService.getAttractionRewardPoints(attractionId, userId);}
+    public int userAttract(@RequestParam UUID attractionId, @RequestParam UUID userId) {return rewardCentralService.getAttractionRewardPoints(attractionId, userId);}
 
 }
